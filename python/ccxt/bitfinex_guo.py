@@ -400,7 +400,7 @@ class bitfinex (Exchange):
             'taker': self.safe_float(response, 'taker_fee'),
         }
 
-    def fetch_markets(self):
+    def fetch_markets(self): 
         markets = self.publicGetSymbolsDetails()
         result = []
         for p in range(0, len(markets)):
@@ -686,7 +686,7 @@ class bitfinex (Exchange):
         }
         return result
 
-    def fetch_open_orders(self, symbol=None, since=None, limit=None, params={}):
+    def fetch_open_orders(self, symbol=None, since=None, limit=None, params={}): # 查看打开状态的订单信息
         self.load_markets()
         if symbol is not None:
             if not(symbol in list(self.markets.keys())):
